@@ -1,0 +1,10 @@
+.screenSurface {
+    background-color: aliceblue;
+    min-height: 360px;
+    
+}
+
+.appbar {
+    display: flex;
+    justify-content: center;
+}
