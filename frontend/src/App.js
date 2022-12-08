@@ -1,21 +1,20 @@
-import { Container } from "@mui/material";
-import "./App.css";
+import './App.css';
+import { useEffect } from 'react'
 
-import MainScreen from "./components/card/Screen";
 
 function App() {
+useEffect(() => {
+  document.title = 'Dash Auto'
+
+
+}, [])
+
+
   return (
-    <Container
-      className="App"
-      maxWidth="md"
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: '2rem',
-      }}
-    >
-      <MainScreen />
-    </Container>
+    
+    <div className="mainContainer">
+      
+    </div>
   );
 }
 
