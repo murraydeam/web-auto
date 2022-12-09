@@ -43,7 +43,7 @@ const Screen = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: "16px",
+          gap: "32px",
           justifyContent: "space-between",
           padding: "0px 16px",
           flex: "1",
@@ -52,6 +52,7 @@ const Screen = () => {
         }}
       >
         <RadioButtonCheckedTwoToneIcon sx={{ fontSize: "48px" }} />
+        
         <Box
           className="musicControls"
           sx={{
@@ -79,8 +80,16 @@ const Screen = () => {
             }}
           />
         </Box>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          gap: '32px',
+          flex: '1',
+        }}>
+
         <MicNoneRoundedIcon fontSize="large" />
         <NotificationsNoneRoundedIcon fontSize="large" />
+        </Box>
       </Box>
     </Container>
   );
