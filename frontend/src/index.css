@@ -54,15 +54,14 @@ main {
   align-items: center;
 }
 
-
 .map {
-  height: 100%;
+  height: 420px;
   width: 100%;
   padding: 0;
   margin: 0;
 }
 
 .screen {
+  overflow: hidden;
   padding: 0px;
 }
-

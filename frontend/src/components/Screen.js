@@ -6,31 +6,21 @@ import FastForwardRoundedIcon from "@mui/icons-material/FastForwardRounded";
 import MicNoneRoundedIcon from "@mui/icons-material/MicNoneRounded";
 import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
 import LibraryMusicRoundedIcon from "@mui/icons-material/LibraryMusicRounded";
-import React from "react";
-
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-  useZoomPanContext,
-} from "react-simple-maps";
-
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/higher-quality-5m/5m-US-congressional-districts-2015.json";
-
-const AddZoom = () => {
-  const ctx = useZoomPanContext();
-
-  // ctx.x
-  // ctx.y
-  // ctx.k
-  // ctx.transformString
-
-  return <circle cx={0} cy={0} r={10} />;
-};
-
+import React, { useEffect, useRef, useState } from "react";
+import tt from "@tomtom-international/web-sdk-maps";
 const Screen = () => {
+  const mapElement = useRef();
+  const [map, setMap] = useState({});
+
+  useEffect(() => {
+    let map = tt.map({
+      key: process.env.REACT_APP_TOM_TOM_API_KEY,
+      container: mapElement.current,
+    });
+
+    setMap(map);
+  }, []);
+
   return (
     <Container
       disableGutters
@@ -54,17 +44,7 @@ const Screen = () => {
             padding: "8px 8px 0px 8px",
           }}
         >
-          <ComposableMap height={450}>
-            <ZoomableGroup>
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography key={geo.rsmKey} geography={geo} />
-                  ))
-                }
-              </Geographies>
-            </ZoomableGroup>
-          </ComposableMap>
+          <div ref={mapElement} className="map"></div>
         </Box>
         <Box
           className="screenNav primary"
