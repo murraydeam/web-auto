@@ -43,10 +43,26 @@ main {
   background-color: var(--bg-dark);
 }
 
+.primary {
+  background-color: var(--bg-light);
+}
+
 .section {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.map {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.screen {
+  padding: 0px;
 }
 

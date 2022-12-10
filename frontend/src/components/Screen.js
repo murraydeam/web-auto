@@ -1,94 +1,109 @@
+import { Box, Container } from "@mui/material";
+import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import FastRewindRoundedIcon from "@mui/icons-material/FastRewindRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import FastForwardRoundedIcon from "@mui/icons-material/FastForwardRounded";
-import RadioButtonCheckedTwoToneIcon from "@mui/icons-material/RadioButtonCheckedTwoTone";
-import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
 import MicNoneRoundedIcon from "@mui/icons-material/MicNoneRounded";
-import { Box, Container } from "@mui/material";
-
+import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
+import LibraryMusicRoundedIcon from "@mui/icons-material/LibraryMusicRounded";
 import React from "react";
+
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  ZoomableGroup,
+  useZoomPanContext,
+} from "react-simple-maps";
+
+const geoUrl =
+  "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/higher-quality-5m/5m-US-congressional-districts-2015.json";
+
+const AddZoom = () => {
+  const ctx = useZoomPanContext();
+
+  // ctx.x
+  // ctx.y
+  // ctx.k
+  // ctx.transformString
+
+  return <circle cx={0} cy={0} r={10} />;
+};
 
 const Screen = () => {
   return (
     <Container
-      maxWidth="md"
       disableGutters
       sx={{
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
-        height: "460px",
-
-        backgroundColor: "lightblue",
       }}
     >
       <Box
-        className="screen"
+        className="screen secondary"
         sx={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0px 16px",
-          flex: "4",
-          width: "100%",
-          backgroundColor: "darkgray",
+          flexDirection: "column",
+          width: 900,
+          height: 540,
         }}
       >
-        <Box className="screen-left">hello</Box>
-        <Box className="screen-right">bye</Box>
-      </Box>
-      <Box
-        className="bottomNav"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "32px",
-          justifyContent: "space-between",
-          padding: "0px 16px",
-          flex: "1",
-          backgroundColor: "lightgray",
-          width: "100%",
-        }}
-      >
-        <RadioButtonCheckedTwoToneIcon sx={{ fontSize: "48px" }} />
-        
         <Box
-          className="musicControls"
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            flex: 1,
-            gap: "40px",
-            backgroundColor: "gray",
-            borderRadius: "25px",
+            flex: "5",
+            padding: "8px 8px 0px 8px",
           }}
         >
-          <FastRewindRoundedIcon
-            sx={{
-              fontSize: "48px",
-            }}
-          />
-          <PlayArrowRoundedIcon
-            sx={{
-              fontSize: "48px",
-            }}
-          />
-          <FastForwardRoundedIcon
-            sx={{
-              fontSize: "48px",
-            }}
-          />
+          <ComposableMap height={450}>
+            <ZoomableGroup>
+              <Geographies geography={geoUrl}>
+                {({ geographies }) =>
+                  geographies.map((geo) => (
+                    <Geography key={geo.rsmKey} geography={geo} />
+                  ))
+                }
+              </Geographies>
+            </ZoomableGroup>
+          </ComposableMap>
         </Box>
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          gap: '32px',
-          flex: '1',
-        }}>
-
-        <MicNoneRoundedIcon fontSize="large" />
-        <NotificationsNoneRoundedIcon fontSize="large" />
+        <Box
+          className="screenNav primary"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flex: "1",
+            gap: "16px",
+            padding: "0px 32px",
+          }}
+        >
+          <RadioButtonCheckedIcon sx={{ fontSize: "40px" }} />
+          <Box
+            className="playButtons secondary"
+            sx={{
+              display: "flex",
+              padding: "8px 16px",
+              ml: "32px",
+              justifyContent: "space-between",
+              borderRadius: "50px",
+              width: "380px",
+            }}
+          >
+            <LibraryMusicRoundedIcon sx={{ fontSize: "40px" }} />
+            <FastRewindRoundedIcon sx={{ fontSize: "40px" }} />
+            <PlayArrowRoundedIcon sx={{ fontSize: "40px" }} />
+            <FastForwardRoundedIcon sx={{ fontSize: "40px" }} />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "32px",
+              flex: "1",
+              justifyContent: "flex-end",
+            }}
+          >
+            <MicNoneRoundedIcon sx={{ fontSize: "40px" }} />
+            <NotificationsActiveRoundedIcon sx={{ fontSize: "40px" }} />
+          </Box>
         </Box>
       </Box>
     </Container>
