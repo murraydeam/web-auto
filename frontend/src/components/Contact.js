@@ -7,17 +7,17 @@ import { styled } from "@mui/material/styles";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
-    color: "black",
+    color: "#73877b",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "#f5e4d7",
+    borderBottomColor: "#73877b",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#f5e4d7",
+      borderColor: "#73877b",
     },
     "&:hover fieldset": {
-      borderColor: "#f5e4d7",
+      borderColor: "#73877b",
     },
     "&.Mui-focused fieldset": {
       borderColor: "#f5e4d7",
