@@ -1,6 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import "../App.css";
 import React from "react";
 
 const Contact = () => {
@@ -25,7 +26,6 @@ const Contact = () => {
               margin="normal"
               required
               fullWidth
-              Label
               id="firstName"
               label="First Name"
               name="firstName"
@@ -62,7 +62,7 @@ const Contact = () => {
                 multiline
                 rows={10}
                 maxRows={20}
-              ></TextField>
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -73,6 +73,7 @@ const Contact = () => {
             mt: 3,
             mb: 2,
             width: "50%",
+            bgcolor: "#78646a",
           }}
         >
           Contact
