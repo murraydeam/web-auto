@@ -42,7 +42,9 @@ const Screen = () => {
         height: '80vh'
       }}
     >
-      <Box className="screen-left">
+      <Box className="screen-left" sx={{
+        height: '100%',
+      }}>
         <Box
           className="screen-header"
           sx={{
