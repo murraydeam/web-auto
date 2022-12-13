@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import FastRewindRoundedIcon from "@mui/icons-material/FastRewindRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
@@ -29,7 +29,7 @@ const Screen = () => {
     });
 
     setMap(map);
-  }, []);
+  }, [latitude, longitude]);
 
   return (
     <Container
@@ -69,6 +69,7 @@ const Screen = () => {
           </Typography>
         </Box>
       </Box>
+      
       <Box
         className="screen secondary"
         sx={{
@@ -122,7 +123,7 @@ const Screen = () => {
             }}
           >
             <MicNoneRoundedIcon sx={{ fontSize: "40px" }} />
-            <NotificationsActiveRoundedIcon sx={{ fontSize: "40px" }} />
+            <NotificationsActiveRoundedIcon  sx={{ fontSize: "40px" }} />
           </Box>
         </Box>
       </Box>

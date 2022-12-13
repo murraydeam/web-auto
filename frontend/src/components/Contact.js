@@ -3,6 +3,27 @@ import { Container } from "@mui/system";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import "../App.css";
 import React from "react";
+import { styled } from "@mui/material/styles";
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "black",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#f5e4d7",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#f5e4d7",
+    },
+    "&:hover fieldset": {
+      borderColor: "#f5e4d7",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#f5e4d7",
+    },
+  },
+});
 
 const Contact = () => {
   return (
@@ -14,7 +35,7 @@ const Contact = () => {
       }}
     >
       <Box className="contact-icon">
-        <ContactsOutlinedIcon />
+        <ContactsOutlinedIcon fontSize="large" />
       </Box>
       <Box className="contact-title">
         <Typography variant="h3">Contact</Typography>
@@ -22,7 +43,7 @@ const Contact = () => {
       <Box component="form" className="contact-form" sx={{ mt: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <TextField
+            <CssTextField
               margin="normal"
               required
               fullWidth
@@ -33,7 +54,7 @@ const Contact = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField
+            <CssTextField
               margin="normal"
               required
               fullWidth
@@ -44,7 +65,7 @@ const Contact = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <TextField
+            <CssTextField
               margin="normal"
               required
               fullWidth
@@ -55,13 +76,16 @@ const Contact = () => {
               autoFocus
             />
             <Grid item xs={12}>
-              <TextField
+              <CssTextField
                 fullWidth
                 required
                 label="Message"
                 multiline
                 rows={10}
                 maxRows={20}
+                sx={{
+                  color: "#78646a",
+                }}
               />
             </Grid>
           </Grid>
