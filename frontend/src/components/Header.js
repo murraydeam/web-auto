@@ -9,7 +9,7 @@ const Header = () => {
           After spending some time with the Android Auto interface I feel it is
           missing a major feature
         </h3>
-        <h1>Support for Dashers!</h1>
+        <h1>Color Schemes!</h1>
         <a href="#main">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +18,7 @@ const Header = () => {
             viewBox="0 0 24 24"
             width="80px"
             fill="#000000"
+            
           >
             <g>
               <rect fill="none" height="24" width="24" />

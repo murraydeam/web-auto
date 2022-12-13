@@ -7,7 +7,10 @@ import MicNoneRoundedIcon from "@mui/icons-material/MicNoneRounded";
 import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
 import LibraryMusicRoundedIcon from "@mui/icons-material/LibraryMusicRounded";
 import React, { useEffect, useRef, useState } from "react";
+import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import tt from "@tomtom-international/web-sdk-maps";
+
+
 const Screen = () => {
   const mapElement = useRef();
   const [map, setMap] = useState({});
@@ -44,7 +47,9 @@ const Screen = () => {
             padding: "8px 8px 0px 8px",
           }}
         >
-          <div ref={mapElement} className="map"></div>
+          <div ref={mapElement} className="map">
+            
+          </div>
         </Box>
         <Box
           className="screenNav primary"
