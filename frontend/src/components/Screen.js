@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import FastRewindRoundedIcon from "@mui/icons-material/FastRewindRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
@@ -10,15 +10,22 @@ import React, { useEffect, useRef, useState } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import tt from "@tomtom-international/web-sdk-maps";
 
-
 const Screen = () => {
   const mapElement = useRef();
   const [map, setMap] = useState({});
+  const [longitude, setLongitude] = useState(-76.8867);
+  const [latitude, setLatitude] = useState(40.2732);
 
   useEffect(() => {
     let map = tt.map({
       key: process.env.REACT_APP_TOM_TOM_API_KEY,
       container: mapElement.current,
+      center: [longitude, latitude],
+      zoom: 10,
+      stylesVisibility: {
+        trafficIncidents: true,
+        trafficFlow: true,
+      },
     });
 
     setMap(map);
@@ -27,11 +34,39 @@ const Screen = () => {
   return (
     <Container
       disableGutters
+      maxWidth="xl"
       sx={{
         display: "flex",
         justifyContent: "center",
+        alignItems: 'center',
+        height: '80vh'
       }}
     >
+      <Box className="screen-left">
+        <Box
+          className="screen-header"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <Typography variant="h3">Customizable Color Schemes!</Typography>
+        </Box>
+        <Box
+          className="screen-details"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "q",
+          }}
+        >
+          <Typography variant="p">
+            Imagine matching the color scheme of of your cars interior to the UI
+            on the Android auto interface!
+          </Typography>
+        </Box>
+      </Box>
       <Box
         className="screen secondary"
         sx={{
@@ -47,9 +82,7 @@ const Screen = () => {
             padding: "8px 8px 0px 8px",
           }}
         >
-          <div ref={mapElement} className="map">
-            
-          </div>
+          <div ref={mapElement} className="map"></div>
         </Box>
         <Box
           className="screenNav primary"
