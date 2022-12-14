@@ -40,7 +40,7 @@ const Contact = () => {
       <Box className="contact-title">
         <Typography variant="h3">Contact</Typography>
       </Box>
-      <Box component="form" className="contact-form" sx={{ mt: 1 }}>
+      <Box component="form" className="contact-form">
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <CssTextField
@@ -64,7 +64,7 @@ const Contact = () => {
               autoFocus
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ paddingTop: 0 }}>
             <CssTextField
               margin="normal"
               required

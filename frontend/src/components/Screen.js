@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import FastRewindRoundedIcon from "@mui/icons-material/FastRewindRounded";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
@@ -9,6 +9,9 @@ import LibraryMusicRoundedIcon from "@mui/icons-material/LibraryMusicRounded";
 import React, { useEffect, useRef, useState } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import tt from "@tomtom-international/web-sdk-maps";
+import { ThemeContext } from "@emotion/react";
+import { ScreenContainer } from "../styles/screen";
+
 
 const Screen = () => {
   const mapElement = useRef();
@@ -32,7 +35,7 @@ const Screen = () => {
   }, [latitude, longitude]);
 
   return (
-    <Container
+    <ScreenContainer
       disableGutters
       maxWidth="xl"
       sx={{
@@ -40,17 +43,20 @@ const Screen = () => {
         justifyContent: "center",
         alignItems: 'center',
         height: '80vh'
+        
       }}
     >
       <Box className="screen-left" sx={{
-        height: '100%',
+        height: '80%',
       }}>
         <Box
           className="screen-header"
           sx={{
+            padding: '16px',
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            alignItems: 'center',
           }}
         >
           <Typography variant="h3">Customizable Color Schemes!</Typography>
@@ -60,7 +66,7 @@ const Screen = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "q",
+            justifyContent: "center",
           }}
         >
           <Typography variant="p">
@@ -75,7 +81,8 @@ const Screen = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: 900,
+          flex: '1 1 auto',
+          maxWidth: 900,
           height: 540,
         }}
       >
@@ -98,6 +105,7 @@ const Screen = () => {
           }}
         >
           <RadioButtonCheckedIcon sx={{ fontSize: "40px" }} />
+          
           <Box
             className="playButtons secondary"
             sx={{
@@ -109,6 +117,7 @@ const Screen = () => {
               width: "380px",
             }}
           >
+            
             <LibraryMusicRoundedIcon sx={{ fontSize: "40px" }} />
             <FastRewindRoundedIcon sx={{ fontSize: "40px" }} />
             <PlayArrowRoundedIcon sx={{ fontSize: "40px" }} />
@@ -127,7 +136,7 @@ const Screen = () => {
           </Box>
         </Box>
       </Box>
-    </Container>
+    </ScreenContainer>
   );
 };
 
