@@ -16,7 +16,7 @@ export const ScreenContainer = styled(Box)(({ theme }) => ({
 export const ScreenContainerTop = styled(Box)(({ theme }) => ({
   display: "flex",
   height: "60vh",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     flexDirection: "column",
     alignItems: "center",
   },
