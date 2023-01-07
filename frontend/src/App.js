@@ -1,9 +1,12 @@
+import { keyframes } from "@emotion/react";
 import { useEffect } from "react";
 import "./App.css";
 import Contact from "./components/Contact";
+import Deliver from "./components/Deliver";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Screen from "./components/Screen";
+import { BodyContainer } from "./styles/screen";
 
 function App() {
   useEffect(() => {
@@ -13,8 +16,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main id="main" className="section">
-        <Screen />
+      <main id="main" >
+        <BodyContainer maxWidth='xl'>
+          <Screen />
+          {/* <Deliver /> */}
+        </BodyContainer>
       </main>
       <Contact />
       <Footer />

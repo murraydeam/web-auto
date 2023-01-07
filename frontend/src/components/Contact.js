@@ -93,6 +93,7 @@ const Contact = () => {
         <Button
           type="submit"
           variant="contained"
+          disabled
           sx={{
             mt: 3,
             mb: 2,

@@ -10,8 +10,11 @@ import React, { useEffect, useRef, useState } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import tt from "@tomtom-international/web-sdk-maps";
 import { ThemeContext } from "@emotion/react";
-import { ScreenContainer } from "../styles/screen";
-
+import {
+  ScreenContainer,
+  ScreenContainerTop,
+  ScreenContainerTopRight,
+} from "../styles/screen";
 
 const Screen = () => {
   const mapElement = useRef();
@@ -35,107 +38,94 @@ const Screen = () => {
   }, [latitude, longitude]);
 
   return (
-    <ScreenContainer
-      disableGutters
-      maxWidth="xl"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: 'center',
-        height: '80vh'
-        
-      }}
-    >
-      <Box className="screen-left" sx={{
-        height: '80%',
-      }}>
+    <ScreenContainer className="section">
+      <ScreenContainerTop className="screen-top">
         <Box
-          className="screen-header"
+          className="screen-left"
           sx={{
-            padding: '16px',
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: 'center',
+            px: 3,
+            py: 3,
+            maxWidth: "80vw",
           }}
         >
-          <Typography variant="h3">Customizable Color Schemes!</Typography>
-        </Box>
-        <Box
-          className="screen-details"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <Typography variant="p">
-            Imagine matching the color scheme of of your cars interior to the UI
-            on the Android auto interface!
-          </Typography>
-        </Box>
-      </Box>
-      
-      <Box
-        className="screen secondary"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          flex: '1 1 auto',
-          maxWidth: 900,
-          height: 540,
-        }}
-      >
-        <Box
-          sx={{
-            flex: "5",
-            padding: "8px 8px 0px 8px",
-          }}
-        >
-          <div ref={mapElement} className="map"></div>
-        </Box>
-        <Box
-          className="screenNav primary"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            flex: "1",
-            gap: "16px",
-            padding: "0px 32px",
-          }}
-        >
-          <RadioButtonCheckedIcon sx={{ fontSize: "40px" }} />
-          
           <Box
-            className="playButtons secondary"
+            className="screen-header"
             sx={{
+              padding: "16px",
               display: "flex",
-              padding: "8px 16px",
-              ml: "32px",
-              justifyContent: "space-between",
-              borderRadius: "50px",
-              width: "380px",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            
-            <LibraryMusicRoundedIcon sx={{ fontSize: "40px" }} />
-            <FastRewindRoundedIcon sx={{ fontSize: "40px" }} />
-            <PlayArrowRoundedIcon sx={{ fontSize: "40px" }} />
-            <FastForwardRoundedIcon sx={{ fontSize: "40px" }} />
+            <Typography variant="h3">Delivery Auto!</Typography>
           </Box>
           <Box
+            className="screen-details"
             sx={{
               display: "flex",
-              gap: "32px",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="p">
+              Safety is a number 1 priority, having an application that would
+              support Android Auto&copy; or Apple Carplay&copy;
+            </Typography>
+          </Box>
+        </Box>
+
+        <ScreenContainerTopRight className="screen secondary">
+          <Box
+            sx={{
+              flex: "5",
+              padding: "8px 8px 0px 8px",
+            }}
+          >
+            <div ref={mapElement} className="map"></div>
+          </Box>
+          <Box
+            className="screenNav primary"
+            sx={{
+              display: "flex",
+              alignItems: "center",
               flex: "1",
-              justifyContent: "flex-end",
+              gap: "16px",
+              padding: "0px 32px",
             }}
           >
-            <MicNoneRoundedIcon sx={{ fontSize: "40px" }} />
-            <NotificationsActiveRoundedIcon  sx={{ fontSize: "40px" }} />
+            <RadioButtonCheckedIcon sx={{ fontSize: "40px" }} />
+
+            <Box
+              className="playButtons secondary"
+              sx={{
+                display: "flex",
+                padding: "8px 16px",
+                ml: "32px",
+                justifyContent: "space-between",
+                borderRadius: "50px",
+                width: "380px",
+              }}
+            >
+              <LibraryMusicRoundedIcon sx={{ fontSize: "40px" }} />
+              <FastRewindRoundedIcon sx={{ fontSize: "40px" }} />
+              <PlayArrowRoundedIcon sx={{ fontSize: "40px" }} />
+              <FastForwardRoundedIcon sx={{ fontSize: "40px" }} />
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "32px",
+                flex: "1",
+                justifyContent: "flex-end",
+              }}
+            >
+              <MicNoneRoundedIcon sx={{ fontSize: "40px" }} />
+              <NotificationsActiveRoundedIcon sx={{ fontSize: "40px" }} />
+            </Box>
           </Box>
-        </Box>
-      </Box>
+        </ScreenContainerTopRight>
+      </ScreenContainerTop>
     </ScreenContainer>
   );
 };

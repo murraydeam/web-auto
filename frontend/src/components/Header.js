@@ -1,3 +1,4 @@
+import { Slide } from "@mui/material";
 import React from "react";
 
 const Header = () => {
@@ -5,6 +6,7 @@ const Header = () => {
     <header className="secondary section">
       <div className="header-content">
         <h1>Welcome</h1>
+
         <h3>
           After spending some time with the Android Auto interface I feel it is
           missing a major feature
@@ -18,7 +20,6 @@ const Header = () => {
             viewBox="0 0 24 24"
             width="80px"
             fill="#000000"
-            
           >
             <g>
               <rect fill="none" height="24" width="24" />
