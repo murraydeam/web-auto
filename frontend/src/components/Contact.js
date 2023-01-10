@@ -28,7 +28,7 @@ const CssTextField = styled(TextField)({
 const Contact = () => {
   return (
     <Container
-      className="contact"
+      className="contact section"
       maxWidth="sm"
       sx={{
         padding: "16px",

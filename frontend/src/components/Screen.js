@@ -15,6 +15,7 @@ import {
   ScreenContainerTop,
   ScreenContainerTopRight,
 } from "../styles/screen";
+import gsap from "gsap";
 
 const Screen = () => {
   const mapElement = useRef();
@@ -37,6 +38,11 @@ const Screen = () => {
     setMap(map);
   }, [latitude, longitude]);
 
+  const tl = gsap.timeline();
+  useEffect(() => {
+    tl.to(".animateIn", { duration: 2, ease: "power4.inout", y: -200 });
+  }, []);
+
   return (
     <ScreenContainer className="section">
       <ScreenContainerTop className="screen-top">
@@ -48,6 +54,14 @@ const Screen = () => {
             maxWidth: "80vw",
           }}
         >
+          {/* <Box
+            className="animateIn"
+            sx={{
+              height: "80px",
+              width: "120px",
+              border: "2px solid",
+            }}
+          ></Box> */}
           <Box
             className="screen-header"
             sx={{

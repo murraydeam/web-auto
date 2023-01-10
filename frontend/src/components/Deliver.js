@@ -1,9 +1,12 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import React from "react";
 
 const Deliver = () => {
   return (
-    <div>Deliver</div>
-  )
-}
+    <Box className="section">
+      <img src='/screen.png' alt="Screen" />
+    </Box>
+  );
+};
 
-export default Deliver
+export default Deliver;

@@ -1,17 +1,23 @@
 import { Slide } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
 
 const Header = () => {
+  const tl = gsap.timeline();
+  useEffect(() => {
+    tl.to(".animateIn", { duration: 2, ease: "power4.in", y: -50 });
+  }, []);
+
   return (
     <header className="secondary section">
       <div className="header-content">
-        <h1>Welcome</h1>
+        <h1 className="">Welcome</h1>
 
         <h3>
           After spending some time with the Android Auto interface I feel it is
           missing a major feature
         </h3>
-        <h1>Color Schemes!</h1>
+        <h1>Support for Delivery Drivers!</h1>
         <a href="#main">
           <svg
             xmlns="http://www.w3.org/2000/svg"
